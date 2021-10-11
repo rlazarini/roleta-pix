@@ -24,7 +24,7 @@ const createCards = (items) => {
   document.querySelector('#content ul').innerHTML = html
 }
 
-const startCards = () => {
+const startCards = (ms = 0) => {
   for(let card of window.cards) {
     card.classList.add('start')
     window.setTimeout(() => {
@@ -33,9 +33,13 @@ const startCards = () => {
     }, 100)
   }
   document.querySelector('#actions #startCards').remove()
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const randomizer = () => {
+const randomizer = async () => {
+  if (!!document.querySelector('#actions #startCards')) {
+    await startCards(300);
+  }
   document.querySelector('#actions #cta').removeEventListener('click', randomizer, false);
   if (window.temporizer < 177) {
     timer(temporizer)

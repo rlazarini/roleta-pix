@@ -13,6 +13,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	background-color: white;
 }
 #content, #actions {
 	display: flex;
@@ -40,6 +41,7 @@
 }
 #content li .card .conteudo {
 	opacity: 0;
+	-webkit-transform-style: preserve-3d;
 	-webkit-transition: opacity 5s;
 	-webkit-transform: rotateY(180deg);
 }
@@ -47,7 +49,7 @@
 	border-color: #980101;
 }
 #content li .card.block {
-	background: white;
+	background: transparent;
 	-webkit-transform: rotateY(180deg);
 }
 #content li .card.block .conteudo {
