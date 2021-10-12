@@ -54,8 +54,6 @@ const randomizer = async () => {
 const timer = (time) => {
   window.setTimeout(() => {
     document.querySelector('.card.hover:not(.block)')?.classList.remove('hover')
-
-    console.log(window.position, window.cards)
     window.cards[(window.position >= window.cards.length ? 0 : window.position)].classList.add('hover')
     window.position = (window.position + 1 > window.cards.length ? 0 : window.position + 1)
     window.temporizer = time + (Math.random() * (11 - Math.random()) + 1);
