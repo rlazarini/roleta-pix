@@ -41,7 +41,7 @@ const randomizer = async () => {
     await startCards(300);
   }
   document.querySelector('#actions #cta').removeEventListener('click', randomizer, false);
-  if (window.temporizer < 177) {
+  if (window.temporizer < (133 + window.cards.length)) {
     timer(temporizer)
   } else {
     window.temporizer = 1
@@ -56,7 +56,7 @@ const timer = (time) => {
     document.querySelector('.card.hover:not(.block)')?.classList.remove('hover')
     window.cards[(window.position >= window.cards.length ? 0 : window.position)].classList.add('hover')
     window.position = (window.position + 1 > window.cards.length ? 0 : window.position + 1)
-    window.temporizer = time + (Math.random() * (11 - Math.random()) + 1);
+    window.temporizer = time + (Math.random() * (4 - Math.random()) + 1);
     randomizer()
   }, time)
 }
